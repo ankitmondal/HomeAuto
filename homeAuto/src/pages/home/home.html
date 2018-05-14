@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- <ion-content padding> -->
+<ion-content padding="true">
+    <ion-card>
+        <ion-card-header style="text-align:centre">
+          Home Remote
+        </ion-card-header>
+        <ion-card-content>
+          One stop solution for controlling all of your electric and electronic appliances
+        </ion-card-content>
+    </ion-card>
+  <ion-card>
+      <ion-card-header>
+        Time
+      </ion-card-header>
+      <ion-card-content>
+        {{Clock}}
+      </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="time" item-start></ion-icon>
+        {{Clock}}
+        <ion-badge item-end>260k</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="thermometer" item-start></ion-icon>
+        32*C
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="rainy" item-start></ion-icon>
+        12%
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="bulb" item-start></ion-icon>
+        {{dsb_Total}}
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="bulb-outline" item-start></ion-icon>
+        {{dsb_On}}
+      </ion-item>
+   </ion-card-content>
+  </ion-card>
+</ion-content>
+
