@@ -13,7 +13,7 @@ export class DeviceControlPage {
   fans =  [{"Name":"Fan 1","State":"true"},
                 {"Name":"Fan 2","State":"false"}];
 
-  lights =  [{"Name":"light 1","State":"true"},
+  lights =  [{"Name":"light 3","State":"true"},
                 {"Name":"light 2","State":"false"}];
   room:string="bed";
   
