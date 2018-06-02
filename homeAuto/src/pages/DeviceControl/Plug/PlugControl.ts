@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 @Component({
-    selector: 'page-DeviceControl-fancontrol',
-    templateUrl: 'FanControl.html'
+    selector: 'page-DeviceControl-plugcontrol',
+    templateUrl: 'PlugControl.html'
 })
-export class DeviceFanControlPage{
+export class DevicePlugControlPage{
     deviceName : any;
     fanSpeed:number;
     
@@ -12,6 +12,7 @@ export class DeviceFanControlPage{
        this.deviceName= params.get('deviceName');
     }
     goBack() {
+        
          this.navCtrl.pop();
     }
 }

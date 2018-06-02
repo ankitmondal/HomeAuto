@@ -14,6 +14,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { DeviceFanControlPage } from '../pages/DeviceControl/Fan/FanControl'
+import { DevicePlugControlPage } from '../pages/DeviceControl/Plug/PlugControl'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { DeviceControlServiceProvider } from '../providers/device-control-servic
     HomePage,
     TabsPage,
     LoginPage,
-    DeviceFanControlPage
+    DeviceFanControlPage,
+    DevicePlugControlPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,9 @@ import { DeviceControlServiceProvider } from '../providers/device-control-servic
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    DeviceFanControlPage,
+    DevicePlugControlPage
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { DeviceControlServiceProvider } from '../../providers/device-control-service/device-control-service';
 import { DeviceFanControlPage } from './Fan/FanControl'
 @Component({
@@ -13,11 +13,12 @@ export class DeviceControlPage {
   fans =  [{"Name":"Fan 1","State":"true"},
                 {"Name":"Fan 2","State":"false"}];
 
-  lights =  [{"Name":"light 3","State":"true"},
+  lights =  [{"Name":"light 1","State":"true"},
                 {"Name":"light 2","State":"false"}];
   room:string="bed";
   
-    constructor(public navCtrl: NavController,public navParams: NavParams, public deviceAPI: DeviceControlServiceProvider) {
+    constructor(public navCtrl: NavController,public navParams: NavParams,
+                public deviceAPI: DeviceControlServiceProvider,public modalCtrl:ModalController) {
     //this.getDeviceStatus();
   }
   
@@ -34,7 +35,16 @@ export class DeviceControlPage {
     console.log('ionViewDidLoad DashBoardPage');
   }
   
-  goToFanDetails(){
-    this.navCtrl.push(DeviceFanControlPage);
+  goToFanDetails(fanName:any){
+    this.navCtrl.push(DeviceFanControlPage, {deviceName: fanName});
   }
+
+  // presentModal(fanName:any) {
+  //   let modal = this.modalCtrl.create(DeviceFanControlPage, {deviceName: fanName});
+  //   modal.present();
+  // }
+		goToPlugDetails(plugName:any){
+			this.navCtrl.push(DeviceFanControlPage, {deviceName: plugName});
+	}
+
 }

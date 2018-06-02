@@ -52,13 +52,13 @@
         Fan
       </ion-list-header>
 
-      <ion-item *ngFor="let fan of fans">
+      <a (click)="goToFanDetails(fan)" ion-item *ngFor="let fan of fans">
           <ion-icon name="leaf" item-start></ion-icon>
-          <ion-label (click)="goToFanDetails()">
+           <ion-label >
             {{fan.Name}}
           </ion-label> 
           <ion-toggle [checked]="fan.State"></ion-toggle>
-      </ion-item>
+      </a>
     </ion-list>
 
     <!--Pluggables -->
@@ -67,13 +67,13 @@
         <ion-icon name='outlet' item-start></ion-icon>
           Plug Points
       </ion-list-header>
-      <ion-item *ngFor="let plug of plugs">
-          <ion-icon name="leaf" item-start></ion-icon>
+      <a (click)="goToPlugDetails(plug)" ion-item *ngFor="let plug of plugs">
+          <!-- <ion-icon name="leaf" item-start></ion-icon> -->
           <ion-label>
             {{plug.Name}}
           </ion-label> 
           <ion-toggle [checked]="plug.State"></ion-toggle>
-      </ion-item>
+        </a>
     </ion-list>
   </div>
 
