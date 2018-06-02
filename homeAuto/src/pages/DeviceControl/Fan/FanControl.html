@@ -22,7 +22,24 @@
         <ion-icon range-right name="sunny"></ion-icon>
       </ion-range>
     </ion-item>
+    <ion-item-divider color="light">
+        <ion-checkbox color="dark" [(ngModel)]="blnSchedule"></ion-checkbox>
+        <ion-label>
+          Schedule off & on time
+        </ion-label>
+    </ion-item-divider>
+    <ion-item>
+        <ion-label fixed>On Time</ion-label> -->
+        <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
+      
+      </ion-item>
     
+      <ion-item>
+        <ion-label fixed>Off Time</ion-label>
+        <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
+      </ion-item>
   </ion-item-group>
+  <button ion-button block>Save</button>
+  
 </ion-content>
 

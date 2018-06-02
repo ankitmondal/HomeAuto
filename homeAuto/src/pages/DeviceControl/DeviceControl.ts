@@ -17,11 +17,10 @@ export class DeviceControlPage {
                 {"Name":"light 2","State":"false"}];
   room:string="bed";
   
-    constructor(public navCtrl: NavController,public navParams: NavParams,
-                public deviceAPI: DeviceControlServiceProvider,public modalCtrl:ModalController) {
+    constructor(public navCtrl: NavController,public navParams: NavParams, public deviceAPI: DeviceControlServiceProvider) {
     //this.getDeviceStatus();
   }
-  
+
    getDeviceStatus() {
       this.deviceAPI.getDeviceStatus()
       .then(data => {
@@ -38,13 +37,8 @@ export class DeviceControlPage {
   goToFanDetails(fanName:any){
     this.navCtrl.push(DeviceFanControlPage, {deviceName: fanName});
   }
-
-  // presentModal(fanName:any) {
-  //   let modal = this.modalCtrl.create(DeviceFanControlPage, {deviceName: fanName});
-  //   modal.present();
-  // }
+ 
 		goToPlugDetails(plugName:any){
 			this.navCtrl.push(DeviceFanControlPage, {deviceName: plugName});
 	}
-
 }

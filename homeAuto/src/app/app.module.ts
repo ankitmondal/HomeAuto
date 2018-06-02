@@ -20,6 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { DeviceControlServiceProvider } from '../providers/device-control-service/device-control-service';
+//Third party UI
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { DeviceControlServiceProvider } from '../providers/device-control-servic
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
