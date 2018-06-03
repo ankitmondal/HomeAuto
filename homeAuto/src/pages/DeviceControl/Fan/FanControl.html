@@ -31,15 +31,14 @@
     <ion-item>
         <ion-label fixed>On Time</ion-label> -->
         <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
-      
-      </ion-item>
+    </ion-item>
     
       <ion-item>
         <ion-label fixed>Off Time</ion-label>
         <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
       </ion-item>
   </ion-item-group>
-  <button ion-button block>Save</button>
+  <button ion-button block (click)='saveConfiguration();'>Save</button>
   
 </ion-content>
 

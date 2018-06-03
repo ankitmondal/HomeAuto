@@ -36,13 +36,13 @@
         Light
       </ion-list-header>
 
-      <ion-item *ngFor="let light of lights">
+      <a (click)="goToLightDetails(light)" ion-item *ngFor="let light of lights">
           <ion-icon name="eye" item-start></ion-icon>
           <ion-label>
             {{light.Name}}
           </ion-label> 
           <ion-toggle [checked]="light.State"></ion-toggle>
-      </ion-item>
+      </a>
     </ion-list>
 
     <!--Fan -->

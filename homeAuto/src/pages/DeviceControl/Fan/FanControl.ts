@@ -28,4 +28,8 @@ export class DeviceFanControlPage{
     newFunction(){
           console.log(this.blnSchedule);
       }
+
+    saveConfiguration(){
+        console.log(this.fanSpeed,this.blnSchedule);
+      }
 }

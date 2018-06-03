@@ -18,7 +18,7 @@
     <ion-item-divider color="light">
       <ion-checkbox color="dark" [(ngModel)]="blnSchedule"></ion-checkbox>
       <ion-label>
-        Schedule your plug timing
+        Schedule your light timing
       </ion-label>
     </ion-item-divider>
     <ion-item>
@@ -28,6 +28,18 @@
     <ion-item>
       <ion-label fixed>Off Time</ion-label>
       <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox color="dark" [(ngModel)]="blnLDR"></ion-checkbox>
+      <ion-label>
+        Enable LDR based switching
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox color="dark" [(ngModel)]="blnPIR"></ion-checkbox>
+      <ion-label>
+        Enable PIR based switching
+      </ion-label>
     </ion-item>
   </ion-item-group>
   <button ion-button block (click)='saveConfiguration();'>Save</button>
