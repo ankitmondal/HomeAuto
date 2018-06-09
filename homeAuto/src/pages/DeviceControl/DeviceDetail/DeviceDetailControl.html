@@ -1,0 +1,48 @@
+<div *ngIf="room">
+<!--Lights -->
+<ion-list no-border>
+  <ion-list-header>
+    <ion-icon name='bulb' item-start></ion-icon>
+    Light
+  </ion-list-header>
+
+  <a (click)="goToLightDetails(light)" ion-item *ngFor="let light of room.Lights">
+    <ion-icon name="eye" item-start></ion-icon>
+    <ion-label>
+      {{light.Name}}
+    </ion-label>
+    <ion-toggle [checked]="light.State"></ion-toggle>
+  </a>
+</ion-list>
+
+<!--Fan -->
+<ion-list no-border>
+  <ion-list-header>
+    <ion-icon name='nuclear' item-start></ion-icon>
+    Fan
+  </ion-list-header>
+
+  <a (click)="goToFanDetails(fan)" ion-item *ngFor="let fan of room.Fans">
+    <ion-icon name="leaf" item-start></ion-icon>
+    <ion-label>
+      {{fan.Name}}
+    </ion-label>
+    <ion-toggle [checked]="fan.State"></ion-toggle>
+  </a>
+</ion-list>
+
+<!--Pluggables -->
+<ion-list>
+  <ion-list-header>
+    <ion-icon name='outlet' item-start></ion-icon>
+    Plug Points
+  </ion-list-header>
+  <a (click)="goToPlugDetails(plug)" ion-item *ngFor="let plug of room.Plugs">
+    <ion-icon name="leaf" item-start></ion-icon>
+    <ion-label>
+      {{plug.Name}}
+    </ion-label>
+    <ion-toggle [checked]="plug.State"></ion-toggle>
+  </a>
+</ion-list>
+</div>

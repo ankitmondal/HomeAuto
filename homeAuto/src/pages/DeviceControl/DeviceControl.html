@@ -4,7 +4,7 @@
       Device Status
     </ion-title>
     <ion-buttons end>
-   <!--    <button ion-button icon-only>
+      <!--    <button ion-button icon-only>
         <ion-icon name="refresh" (click)="refresh_click()" ng-hide="blockingRequestInProgress || nonBlockingRequestInProgress"></ion-icon>
       </button> -->
     </ion-buttons>
@@ -12,168 +12,12 @@
 </ion-header>
 
 <ion-content padding>
-
   <div padding>
     <ion-segment [(ngModel)]="room">
-      <ion-segment-button value="bed">
-        Bedroom
-      </ion-segment-button>
-      <ion-segment-button value="dine">
-        Dining
-      </ion-segment-button>
-      <ion-segment-button value="kitchen">
-            Kitchen
+      <ion-segment-button [value]="segment.key" *ngFor="let segment of segments" (click)="onClick()">
+        {{segment.value}}
       </ion-segment-button>
     </ion-segment>
   </div>
-
-<div [ngSwitch]="room">
-  <div *ngSwitchCase="'bed'">
-  <!--Lights -->
-    <ion-list no-border >
-      <ion-list-header>
-          <ion-icon name='bulb' item-start></ion-icon>
-        Light
-      </ion-list-header>
-
-      <a (click)="goToLightDetails(light)" ion-item *ngFor="let light of lights">
-          <ion-icon name="eye" item-start></ion-icon>
-          <ion-label>
-            {{light.Name}}
-          </ion-label> 
-          <ion-toggle [checked]="light.State"></ion-toggle>
-      </a>
-    </ion-list>
-
-    <!--Fan -->
-    <ion-list no-border>
-      <ion-list-header>
-        <ion-icon name='nuclear' item-start></ion-icon>
-        Fan
-      </ion-list-header>
-
-      <a (click)="goToFanDetails(fan)" ion-item *ngFor="let fan of fans">
-          <ion-icon name="leaf" item-start></ion-icon>
-           <ion-label >
-            {{fan.Name}}
-          </ion-label> 
-          <ion-toggle [checked]="fan.State"></ion-toggle>
-      </a>
-    </ion-list>
-
-    <!--Pluggables -->
-    <ion-list>
-      <ion-list-header>
-        <ion-icon name='outlet' item-start></ion-icon>
-          Plug Points
-      </ion-list-header>
-      <a (click)="goToPlugDetails(plug)" ion-item *ngFor="let plug of plugs">
-          <!-- <ion-icon name="leaf" item-start></ion-icon> -->
-          <ion-label>
-            {{plug.Name}}
-          </ion-label> 
-          <ion-toggle [checked]="plug.State"></ion-toggle>
-        </a>
-    </ion-list>
-  </div>
-
-  <div *ngSwitchCase="'dine'">
-      <!--Lights -->
-    <ion-list no-border >
-      <ion-list-header>
-        <ion-icon name='bulb' item-start></ion-icon>
-        Light
-      </ion-list-header>
-    
-      <ion-item *ngFor="let light of lights">
-        <ion-icon name="eye" item-start></ion-icon>
-          <ion-label>
-            {{light.Name}}
-          </ion-label> 
-          <ion-toggle [checked]="light.State"></ion-toggle>
-          </ion-item>
-        </ion-list>
-    
-        <!--Fan -->
-        <ion-list no-border>
-          <ion-list-header>
-            <ion-icon name='nuclear' item-start></ion-icon>
-            Fan
-          </ion-list-header>
-    
-          <ion-item *ngFor="let fan of fans">
-              <ion-icon name="leaf" item-start></ion-icon>
-              <ion-label>
-                {{fan.Name}}
-              </ion-label> 
-              <ion-toggle [checked]="fan.State"></ion-toggle>
-          </ion-item>
-        </ion-list>
-    
-        <!--Pluggables -->
-        <ion-list>
-          <ion-list-header>
-            <ion-icon name='outlet' item-start></ion-icon>
-              Plug Points
-          </ion-list-header>
-          <ion-item *ngFor="let plug of plugs">
-              <ion-icon name="leaf" item-start></ion-icon>
-              <ion-label>
-                {{plug.Name}}
-              </ion-label> 
-              <ion-toggle [checked]="plug.State"></ion-toggle>
-          </ion-item>
-        </ion-list>
-  </div>
-
-  <div *ngSwitchCase="'kitchen'">
-          <!--Lights -->
-            <ion-list no-border >
-              <ion-list-header>
-                  <ion-icon name='bulb' item-start></ion-icon>
-                Light
-              </ion-list-header>
-        
-              <ion-item *ngFor="let light of lights">
-                  <ion-icon name="eye" item-start></ion-icon>
-                  <ion-label>
-                    {{light.Name}}
-                  </ion-label> 
-                  <ion-toggle [checked]="light.State"></ion-toggle>
-              </ion-item>
-            </ion-list>
-        
-            <!--Fan -->
-            <ion-list no-border>
-              <ion-list-header>
-                <ion-icon name='nuclear' item-start></ion-icon>
-                Fan
-              </ion-list-header>
-        
-              <ion-item *ngFor="let fan of fans">
-                  <ion-icon name="leaf" item-start></ion-icon>
-                  <ion-label>
-                    {{fan.Name}}
-                  </ion-label> 
-                  <ion-toggle [checked]="fan.State"></ion-toggle>
-              </ion-item>
-            </ion-list>
-        
-            <!--Pluggables -->
-            <ion-list>
-              <ion-list-header>
-                <ion-icon name='outlet' item-start></ion-icon>
-                  Plug Points
-              </ion-list-header>
-              <ion-item *ngFor="let plug of plugs">
-                  <ion-icon name="leaf" item-start></ion-icon>
-                  <ion-label>
-                    {{plug.Name}}
-                  </ion-label> 
-                  <ion-toggle [checked]="plug.State"></ion-toggle>
-              </ion-item>
-            </ion-list>
-          </div>
-</div>
-
- </ion-content>
+ <page-device-detail [room]="roomDetail"></page-device-detail>
+</ion-content>

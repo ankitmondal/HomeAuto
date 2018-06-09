@@ -21,6 +21,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { DeviceControlServiceProvider } from '../providers/device-control-service/device-control-service';
+import { DeviceDetailControlPage } from "../pages/DeviceControl/DeviceDetail/DeviceDetailControl"
 //Third party UI
 
 @NgModule({
@@ -33,7 +34,8 @@ import { DeviceControlServiceProvider } from '../providers/device-control-servic
     LoginPage,
     DeviceFanControlPage,
     DevicePlugControlPage,
-    DeviceLightControlPage
+    DeviceLightControlPage,
+    DeviceDetailControlPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { DeviceControlServiceProvider } from '../providers/device-control-servic
     LoginPage,
     DeviceFanControlPage,
     DevicePlugControlPage,
-    DeviceLightControlPage
+    DeviceLightControlPage,
+    DeviceDetailControlPage
   ],
   providers: [
     StatusBar,

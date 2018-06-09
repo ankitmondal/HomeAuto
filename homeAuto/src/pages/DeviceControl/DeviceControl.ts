@@ -1,50 +1,59 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { DeviceControlServiceProvider } from '../../providers/device-control-service/device-control-service';
-import { DeviceFanControlPage } from './Fan/FanControl'
-import { DevicePlugControlPage } from './Plug/PlugControl'
-import { DeviceLightControlPage } from './Light/LightControl'
 @Component({
   selector: 'page-DeviceControl',
   templateUrl: 'DeviceControl.html'
 })
 export class DeviceControlPage {
-  plugs = [{"Name":"Plug 1","State":"true"},
-                 {"Name":"Plug 2","State":"false"}];
+  segments = [{ "key": "bed", "value": "Bedroom" },
+  { "key": "dine", "value": "Dining" },
+  { "key": "kitchen", "value": "Kitchen" }];
 
-  fans =  [{"Name":"Fan 1","State":"true"},
-                {"Name":"Fan 2","State":"false"}];
+  room: string = "bed";
 
-  lights =  [{"Name":"light 1","State":"true"},
-                {"Name":"light 2","State":"false"}];
-  room:string="bed";
-  
-    constructor(public navCtrl: NavController,public navParams: NavParams, public deviceAPI: DeviceControlServiceProvider) {
-    //this.getDeviceStatus();
+  plugs = [{ "Name": "Bed Room Plug 1", "State": "true" },
+  { "Name": "Plug 2", "State": "false" }];
+
+  fans = [{ "Name": "Bed Room Fan 1", "State": "true" },
+  { "Name": "Fan 2", "State": "false" }];
+
+  lights = [{ "Name": "Bed Room light 1", "State": "true" },
+  { "Name": "light 2", "State": "false" }];
+  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
+  constructor(public serviceProvider: DeviceControlServiceProvider) {
   }
+  onClick() {
+    console.log(this.room);
+    if (this.room === "bed") {
+      this.plugs = [{ "Name": "Bed room Plug 1", "State": "true" },
+      { "Name": "Plug 2", "State": "false" }];
 
-   getDeviceStatus() {
-      this.deviceAPI.getDeviceStatus()
-      .then(data => {
-        this.deviceStatus = data;
-        console.log(JSON.stringify(data));
-      });
+      this.fans = [{ "Name": "Fan 1", "State": "true" },
+      { "Name": "Fan 2", "State": "false" }];
+
+      this.lights = [{ "Name": "light 1", "State": "true" },
+      { "Name": "light 2", "State": "false" }];
     }
-  deviceStatus: any;
+    if (this.room === "dine") {
+      this.plugs = [{ "Name": "dining room Plug 1", "State": "true" },
+      { "Name": "Plug 2", "State": "false" }];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DashBoardPage');
-  }
-  
-  goToFanDetails(fanName:any){
-    this.navCtrl.push(DeviceFanControlPage, {deviceName: fanName});
-  }
- 
-	goToPlugDetails(plugName:any){
-		this.navCtrl.push(DevicePlugControlPage, {deviceName: plugName});
-  }
-  
-  goToLightDetails(lightName:any){
-    this.navCtrl.push(DeviceLightControlPage, {deviceName: lightName});
+      this.fans = [{ "Name": "Fan 1", "State": "true" },
+      { "Name": "Fan 2", "State": "false" }];
+
+      this.lights = [{ "Name": "light 1", "State": "true" },
+      { "Name": "light 2", "State": "false" }];
+    }
+    if (this.room === "kitchen") {
+      this.plugs = [{ "Name": "kitchen Plug 1", "State": "true" },
+      { "Name": "Plug 2", "State": "false" }];
+
+      this.fans = [{ "Name": "Fan 1", "State": "true" },
+      { "Name": "Fan 2", "State": "false" }];
+
+      this.lights = [{ "Name": "light 1", "State": "true" },
+      { "Name": "light 2", "State": "false" }];
+    }
+    this.roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
   }
 }
