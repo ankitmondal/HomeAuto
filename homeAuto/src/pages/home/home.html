@@ -30,19 +30,20 @@
         <ion-badge item-end>260k</ion-badge>
       </ion-item>
 
-      <ion-item>
+      <ion-item *ngIf="weather">
         <ion-icon name="thermometer" item-start></ion-icon>
-        32*C
+        {{ weather.main.temp-273 | number : '1.2-2'}} *c
       </ion-item>
 
-      <ion-item>
+      <ion-item *ngIf="weather">
         <ion-icon name="rainy" item-start></ion-icon>
-        12%
+        {{weather.main.humidity}} %
       </ion-item>
 
       <ion-item>
         <ion-icon name="bulb" item-start></ion-icon>
         {{dsb_Total}}
+        
       </ion-item>
 
       <ion-item>

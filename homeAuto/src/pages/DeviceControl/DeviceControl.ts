@@ -23,7 +23,7 @@ export class DeviceControlPage {
   constructor(public serviceProvider: DeviceControlServiceProvider) {
   }
   onClick() {
-    console.log(this.room);
+    //console.log(this.room);
     if (this.room === "bed") {
       this.plugs = [{ "Name": "Bed room Plug 1", "State": "true" },
       { "Name": "Plug 2", "State": "false" }];

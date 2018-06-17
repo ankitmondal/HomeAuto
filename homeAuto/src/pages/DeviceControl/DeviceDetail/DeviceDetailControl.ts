@@ -14,7 +14,7 @@ export class DeviceDetailControlPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashBoardPage');
+    //console.log('ionViewLoad DashBoardPage');
   }
 
   goToFanDetails(fanName: any) {

@@ -8,10 +8,39 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Issues/Suggestions</ion-list-header>
+    <ion-list-header color="light">Issues/Suggestions Please mail to </ion-list-header>
     <ion-item>
       <ion-icon name="ionic" item-start></ion-icon>
       tam@devControl.com
     </ion-item>
   </ion-list>
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <ion-checkbox color="dark" [(ngModel)]="blnLocationUpdate"></ion-checkbox>
+      <ion-label>
+        Update your location
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-input type="number" placeholder="Pin Code" [disabled]="!blnLocationUpdate" [(ngModel)]="pinCode"></ion-input>
+    </ion-item>
+  </ion-item-group>
+  <button ion-button block [disabled]="!blnLocationUpdate" (click)='updatePinCode();'>Update</button>
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <ion-checkbox color="dark" [(ngModel)]="blnCredentialUpdate"></ion-checkbox>
+      <ion-label>
+        Update your credentials
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [disabled]="!blnCredentialUpdate" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Confirm Password" [disabled]="!blnCredentialUpdate" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-item>
+  </ion-item-group>
+  <button ion-button block (click)='UpdatePassword();' [disabled]="!blnCredentialUpdate">Save</button>
 </ion-content>
