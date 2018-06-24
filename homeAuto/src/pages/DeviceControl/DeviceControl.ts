@@ -22,9 +22,16 @@ export class DeviceControlPage {
 
   lights = [{ "Name": "Bed Room light 1", "State": "true" },
   { "Name": "light 2", "State": "false" }];
+<<<<<<< HEAD
   roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights,"RoomKey":this.room };
   constructor() {
+=======
+  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
+  constructor(public devserviceProvider: DeviceControlService) {
     this.getDeviceStatus();
+  }
+  deviceStatus : any;
+  getDeviceStatus() {
     this.devserviceProvider.getDeviceStatus()
     .subscribe(data=> this.deviceStatus=JSON.parse(data)[0]);
       
