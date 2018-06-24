@@ -21,7 +21,7 @@ import { DeviceLightControlPage } from '../pages/DeviceControl/Light/LightContro
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { DeviceControlServiceProvider } from '../providers/device-control-service/device-control-service';
+import { DeviceControlService } from './../providers/device-control-service/device-control-service';
 import { WeatherService } from './../providers/weather-service/weather.service';
 import { DeviceDetailControlPage } from "../pages/DeviceControl/DeviceDetail/DeviceDetailControl"
 //Third party UI
@@ -63,7 +63,7 @@ import { DeviceDetailControlPage } from "../pages/DeviceControl/DeviceDetail/Dev
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    DeviceControlServiceProvider,
+    DeviceControlService,
     WeatherService
   ]
 })

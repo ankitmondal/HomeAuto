@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Http , Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 /*
   Generated class for the DeviceControlServiceProvider provider.
 
@@ -10,34 +10,21 @@ import 'rxjs/add/operator/map';
   and Angular DI.
 */
 @Injectable()
-export class DeviceControlServiceProvider {
+export class DeviceControlService {
 
-  
-  constructor(public http: HttpClient) {
+  _DeviceApiUrl = `http://localhost:27168/api/GetDeviceStatus?uid=1000027&pass=pass1234`;
+  constructor(private _http: Http) {
     console.log('Hello DeviceControlServiceProvider Provider');
   }
 
   data: any;
-  getDeviceStatus() {
-    if (this.data) {
+  getDeviceStatus(): Observable<any>  {
+   
       // already loaded data
-      return Promise.resolve(this.data);
+      return  this._http.get(this._DeviceApiUrl)
+             .map((res:Response) => res.json())
+             .do(data => console.log(data));
     }
 
-    // don't have the data yet
-    return new Promise(resolve => {
-      // We're using Angular HTTP provider to request the data,
-      // then on the response, it'll map the JSON data to a parsed JS object.
-      // Next, we process the data and resolve the promise with the new data.
-      this.http.get('https://randomuser.me/api/?results=10')
-        .map((res: Response) => res)
-        .subscribe(data => {
-          // we've got back the raw data, now generate the core schedule data
-          // and save the data for later reference
-          this.data = data["results"];
-          resolve(this.data);
-        });
-    });
-  }
-  
+    // don't have the data yet  
 }
