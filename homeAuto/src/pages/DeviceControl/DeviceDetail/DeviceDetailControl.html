@@ -11,7 +11,7 @@
     <ion-label>
       {{light.Name}}
     </ion-label>
-    <ion-toggle [checked]="light.State"></ion-toggle>
+    <ion-toggle [checked]="light.State" (ionChange)="updateDeviceState(light,'Light')"></ion-toggle>
   </a>
 </ion-list>
 
@@ -27,7 +27,7 @@
     <ion-label>
       {{fan.Name}}
     </ion-label>
-    <ion-toggle [checked]="fan.State"></ion-toggle>
+    <ion-toggle [checked]="fan.State" (ionChange)="updateDeviceState(fan,'Fan')"></ion-toggle>
   </a>
 </ion-list>
 
@@ -42,7 +42,7 @@
     <ion-label>
       {{plug.Name}}
     </ion-label>
-    <ion-toggle [checked]="plug.State"></ion-toggle>
+    <ion-toggle [checked]="plug.State" (ionChange)="updateDeviceState(plug,'Plug')"></ion-toggle>
   </a>
 </ion-list>
 </div>

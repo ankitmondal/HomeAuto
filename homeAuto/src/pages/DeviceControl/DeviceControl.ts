@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DeviceControlServiceProvider } from '../../providers/device-control-service/device-control-service';
 @Component({
   selector: 'page-DeviceControl',
   templateUrl: 'DeviceControl.html'
@@ -19,8 +18,8 @@ export class DeviceControlPage {
 
   lights = [{ "Name": "Bed Room light 1", "State": "true" },
   { "Name": "light 2", "State": "false" }];
-  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
-  constructor(public serviceProvider: DeviceControlServiceProvider) {
+  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights,"RoomKey":this.room };
+  constructor() {
   }
   onClick() {
     //console.log(this.room);
@@ -54,6 +53,6 @@ export class DeviceControlPage {
       this.lights = [{ "Name": "light 1", "State": "true" },
       { "Name": "light 2", "State": "false" }];
     }
-    this.roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
+    this.roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights, "RoomKey": this.room};
   }
 }

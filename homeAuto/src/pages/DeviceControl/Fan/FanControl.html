@@ -30,12 +30,12 @@
     </ion-item-divider>
     <ion-item>
         <ion-label fixed>On Time</ion-label> -->
-        <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
+        <ion-input type="time" [(ngModel)="onTime"] [disabled]="!blnSchedule"></ion-input>
     </ion-item>
     
       <ion-item>
         <ion-label fixed>Off Time</ion-label>
-        <ion-input type="time" [disabled]="!blnSchedule"></ion-input>
+        <ion-input type="time" [(ngModel)="offTime"] [disabled]="!blnSchedule"></ion-input>
       </ion-item>
   </ion-item-group>
   <button ion-button block (click)='saveConfiguration();'>Save</button>
