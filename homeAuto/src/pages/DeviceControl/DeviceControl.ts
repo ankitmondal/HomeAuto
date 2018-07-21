@@ -1,125 +1,51 @@
-import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
-import { DeviceControlService} from '../../providers/device-control-service/device-control-service';
->>>>>>> fc0d9d65dac85fcfb864a519441ec46b831ec8a4
+import { Component, OnInit } from '@angular/core';
+import { DeviceControlService } from '../../providers/device-control-service/device-control-service';
 @Component({
   selector: 'page-DeviceControl',
   templateUrl: 'DeviceControl.html'
 })
-export class DeviceControlPage {
-  // segments = [{ "key": "bed", "value": "Bedroom" },
-  // { "key": "dine", "value": "Dining" },
-  // { "key": "kitchen", "value": "Kitchen" }];
-  segments : any;
+export class DeviceControlPage implements OnInit {
+  segments = [{ "key": "Bed", "value": "Bedroom" },
+  { "key": "Dine", "value": "Dining" },
+  { "key": "Kitchen", "value": "Kitchen" }];
   room: string = "bed";
-
-  plugs = [{ "Name": "Bed Room Plug 1", "State": "true" },
-  { "Name": "Plug 2", "State": "false" }];
-
-  fans = [{ "Name": "Bed Room Fan 1", "State": "true" },
-  { "Name": "Fan 2", "State": "false" }];
-
-  lights = [{ "Name": "Bed Room light 1", "State": "true" },
-  { "Name": "light 2", "State": "false" }];
-<<<<<<< HEAD
-  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights,"RoomKey":this.room };
-  constructor() {
-=======
-  roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
+  roomDetail :any;
+  deviceStatus: any;
   constructor(public devserviceProvider: DeviceControlService) {
+  }
+  
+  ngOnInit() {
     this.getDeviceStatus();
   }
-  deviceStatus : any;
+
   getDeviceStatus() {
     this.devserviceProvider.getDeviceStatus()
-    .subscribe(data=> this.deviceStatus=JSON.parse(data)[0]);
+      .subscribe((data: any) => {
+        this.deviceStatus = data[0];
+        console.log(this.deviceStatus);
+        //this.segments = this.deviceStatus.Rooms;
+        // this.deviceStatus.Rooms.forEach(element => {
+        //   this.segments.push({ "key": element.RoomName, "value": element.RoomName})
+        // });
       
-     console.log(this.deviceStatus);
-     this.segments = this.deviceStatus.Rooms;
-     this.room = this.deviceStatus.Rooms[0].RoomName;
-     this.roomDetail={ "Plugs": this.deviceStatus.Rooms[0].Devices[0].Plug, "Fans": this.deviceStatus.Rooms[0].Devices[0].Fan, "Lights": this.deviceStatus.Rooms[0].Devices[0].Light };
-      // this.fans = this.deviceStatus.filter((item)=> {return item.devicetype == "Fan"});
-      // this.lights = this.deviceStatus.filter((item)=> {return item.devicetype == "Light"});
-      // this.plugs = this.deviceStatus.filter((item)=> {return item.devicetype == "Plug"});
-    //console.log(this.fans);
-    
->>>>>>> fc0d9d65dac85fcfb864a519441ec46b831ec8a4
+        this.roomDetail = {
+          "Plugs": this.deviceStatus.Rooms[0].Devices[0].Plug,
+          "Fans": this.deviceStatus.Rooms[0].Devices[0].Fan,
+          "Lights": this.deviceStatus.Rooms[0].Devices[0].Light, "RoomKey": this.room
+        };
+      });
   }
-
+  
   onClick() {
+    console.log(this.room);
     this.deviceStatus.Rooms.forEach(rm => {
-      if(rm.RoomName === this.room)
-      {
-        this.roomDetail={ "Plugs": rm.Devices[0].Plug, "Fans": rm.Devices[0].Fan, "Lights": rm.Devices[0].Light };
+      if (rm.RoomName == this.room) {
+        this.roomDetail = {
+          "Plugs": rm.Devices[0].Plug,"Fans": rm.Devices[0].Fan, 
+          "Lights": rm.Devices[0].Light, "RoomKey": this.room 
+        };
       }
-      
     });
-    //console.log(this.room);
-<<<<<<< HEAD
-    if (this.room === "bed") {
-      this.plugs = [{ "Name": "Bed room Plug 1", "State": "true" },
-      { "Name": "Plug 2", "State": "false" }];
-
-      this.fans = [{ "Name": "Fan 1", "State": "true" },
-      { "Name": "Fan 2", "State": "false" }];
-
-      this.lights = [{ "Name": "light 1", "State": "true" },
-      { "Name": "light 2", "State": "false" }];
-    }
-    if (this.room === "dine") {
-      this.plugs = [{ "Name": "dining room Plug 1", "State": "true" },
-      { "Name": "Plug 2", "State": "false" }];
-
-      this.fans = [{ "Name": "Fan 1", "State": "true" },
-      { "Name": "Fan 2", "State": "false" }];
-
-      this.lights = [{ "Name": "light 1", "State": "true" },
-      { "Name": "light 2", "State": "false" }];
-    }
-    if (this.room === "kitchen") {
-      this.plugs = [{ "Name": "kitchen Plug 1", "State": "true" },
-      { "Name": "Plug 2", "State": "false" }];
-
-      this.fans = [{ "Name": "Fan 1", "State": "true" },
-      { "Name": "Fan 2", "State": "false" }];
-
-      this.lights = [{ "Name": "light 1", "State": "true" },
-      { "Name": "light 2", "State": "false" }];
-    }
-    this.roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights, "RoomKey": this.room};
-=======
-    // if (this.room === "bed") {
-    //   this.plugs = [{ "Name": "Bed room Plug 1", "State": "true" },
-    //   { "Name": "Plug 2", "State": "false" }];
-
-    //   this.fans = [{ "Name": "Fan 1", "State": "true" },
-    //   { "Name": "Fan 2", "State": "false" }];
-
-    //   this.lights = [{ "Name": "light 1", "State": "true" },
-    //   { "Name": "light 2", "State": "false" }];
-    // }
-    // if (this.room === "dine") {
-    //   this.plugs = [{ "Name": "dining room Plug 1", "State": "true" },
-    //   { "Name": "Plug 2", "State": "false" }];
-
-    //   this.fans = [{ "Name": "Fan 1", "State": "true" },
-    //   { "Name": "Fan 2", "State": "false" }];
-
-    //   this.lights = [{ "Name": "light 1", "State": "true" },
-    //   { "Name": "light 2", "State": "false" }];
-    // }
-    // if (this.room === "kitchen") {
-    //   this.plugs = [{ "Name": "kitchen Plug 1", "State": "true" },
-    //   { "Name": "Plug 2", "State": "false" }];
-
-    //   this.fans = [{ "Name": "Fan 1", "State": "true" },
-    //   { "Name": "Fan 2", "State": "false" }];
-
-    //   this.lights = [{ "Name": "light 1", "State": "true" },
-    //   { "Name": "light 2", "State": "false" }];
-    // }
-    // this.roomDetail = { "Plugs": this.plugs, "Fans": this.fans, "Lights": this.lights };
->>>>>>> fc0d9d65dac85fcfb864a519441ec46b831ec8a4
   }
+
 }

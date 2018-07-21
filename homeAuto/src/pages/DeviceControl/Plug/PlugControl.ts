@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { DeviceControlServiceProvider } from '../../../providers/device-control-service/device-control-service';
+import { DeviceControlService } from '../../../providers/device-control-service/device-control-service';
 import { Time } from '@angular/common';
 @Component({
     selector: 'page-DeviceControl-plugcontrol',
@@ -12,7 +12,7 @@ export class DevicePlugControlPage{
     RoomKey:string;
     onTime:Time;
     offTime:Time;
-    constructor(params: NavParams,public navCtrl: NavController,public _service:DeviceControlServiceProvider) {
+    constructor(params: NavParams,public navCtrl: NavController,public _service:DeviceControlService) {
        this.deviceName= params.get('deviceName');
        this.RoomKey= params.get('RoomKey');
     }

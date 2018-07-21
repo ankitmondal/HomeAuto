@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams ,AlertController } from 'ionic-angular';
-import { DeviceControlServiceProvider } from '../../../providers/device-control-service/device-control-service';
+import { DeviceControlService } from '../../../providers/device-control-service/device-control-service';
 import { Time } from '@angular/common';
 @Component({
     selector: 'page-DeviceControl-fancontrol',
@@ -13,7 +13,8 @@ export class DeviceFanControlPage{
     RoomKey:string;
     onTime:Time;
     offTime:Time;
-    constructor(params: NavParams,public navCtrl: NavController,public alertCtrl:AlertController,public _service:DeviceControlServiceProvider ) {
+    constructor(params: NavParams,public navCtrl: NavController,public alertCtrl:AlertController
+      ,public _service:DeviceControlService ) {
        this.deviceName= params.get('deviceName');
        this.RoomKey= params.get('RoomKey');
     }

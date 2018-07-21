@@ -4,9 +4,6 @@
       Device Status
     </ion-title>
     <ion-buttons end>
-      <!--    <button ion-button icon-only>
-        <ion-icon name="refresh" (click)="refresh_click()" ng-hide="blockingRequestInProgress || nonBlockingRequestInProgress"></ion-icon>
-      </button> -->
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -14,8 +11,8 @@
 <ion-content padding>
   <div padding>
     <ion-segment [(ngModel)]="room">
-      <ion-segment-button [value]="segment.RoomName" *ngFor="let segment of segments" (click)="onClick()">
-        {{segment.RoomName}}
+      <ion-segment-button [value]="segment.key" *ngFor="let segment of segments" (click)="onClick()">
+        {{segment.value}}
       </ion-segment-button>
     </ion-segment>
   </div>

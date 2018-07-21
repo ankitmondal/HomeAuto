@@ -11,15 +11,14 @@ import 'rxjs/add/operator/do';
 */
 @Injectable()
 export class DeviceControlService {
-
-  _DeviceApiUrl = `http://localhost:27168/api/GetDeviceStatus?uid=1000027&pass=pass1234`;
+  // _DeviceApiUrl = `http://localhost:27168/api/GetDeviceStatus?uid=1000027&pass=pass1234`;
+  _DeviceApiUrl = 'assets/generatedJson.json';
   constructor(private _http: Http) {
     console.log('Hello DeviceControlServiceProvider Provider');
   }
 
   data: any;
   getDeviceStatus(): Observable<any>  {
-   
       // already loaded data
       return  this._http.get(this._DeviceApiUrl)
              .map((res:Response) => res.json())
@@ -27,4 +26,7 @@ export class DeviceControlService {
     }
 
     // don't have the data yet  
+    updateDeviceStatus(){
+      
+    }
 }

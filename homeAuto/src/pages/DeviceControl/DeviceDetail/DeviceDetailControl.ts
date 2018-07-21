@@ -4,8 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DeviceFanControlPage } from '../Fan/FanControl'
 import { DevicePlugControlPage } from '../Plug/PlugControl'
 import { DeviceLightControlPage } from '../Light/LightControl'
-
-import { DeviceControlServiceProvider } from '../../../providers/device-control-service/device-control-service';
+import { DeviceControlService } from '../../../providers/device-control-service/device-control-service';
 @Component({
   selector: 'page-device-detail',
   templateUrl: 'DeviceDetailControl.html'
@@ -13,11 +12,11 @@ import { DeviceControlServiceProvider } from '../../../providers/device-control-
 export class DeviceDetailControlPage {
   @Input() room;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public serviceProvider: DeviceControlServiceProvider) {
-  
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+                            public serviceProvider: DeviceControlService) {
   }
   ionViewDidLoad() {
-    //console.log('ionViewLoad DashBoardPage');
+    console.log('ionViewDidLoad DashBoardPage');
   }
 
   goToFanDetails(fanName: any) {
@@ -25,11 +24,11 @@ export class DeviceDetailControlPage {
   }
 
   goToPlugDetails(plugName: any) {
-    this.navCtrl.push(DevicePlugControlPage, { deviceName: plugName ,RoomKey:this.room.RoomKey});
+    this.navCtrl.push(DevicePlugControlPage, { deviceName: plugName, RoomKey:this.room.RoomKey });
   }
 
   goToLightDetails(lightName: any) {
-    this.navCtrl.push(DeviceLightControlPage, { deviceName: lightName,RoomKey:this.room.RoomKey });
+    this.navCtrl.push(DeviceLightControlPage, { deviceName: lightName , RoomKey:this.room.RoomKey});
   }
 
   updateDeviceState(item:any,deviceType:string){
@@ -37,5 +36,4 @@ export class DeviceDetailControlPage {
     var lightObj={item,"RoomKey":this.room.RoomKey,"Device":deviceType};
     console.log(lightObj);
   } 
-
 }
